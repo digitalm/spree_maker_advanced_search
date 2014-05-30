@@ -1,0 +1,24 @@
+ja:
+  add_on:
+    advanced_search:
+      advanced_search: 詳細検索
+      name_cont: 商品名
+      add_on_makers_eq: メーカー
+      taxons_id_eq: カテゴリ
+      variants_including_master_sku_cont: 品番
+      variants_min_cost_price_gteq: 下限価格
+      variants_max_cost_price_lteq: 上限価格
+      filter_elements: 並び替え
+      name: 商品名
+      variants_including_master_sku: 品番
+      variants_including_master_prices_amount: 価格
+      variants_including_master_updated_at: 新着
+      popularity: 人気
+      name_asc: 商品名昇順
+      name_desc: 商品名降順
+      variants_including_master_sku_asc: 品番昇順
+      variants_including_master_sku_desc: 品番降順
+      variants_including_master_prices_amount_asc: 価格が安い順
+      variants_including_master_prices_amount_desc: 価格が高い順
+      variants_including_master_updated_at_asc: 新着昇順
+      variants_including_master_updated_at_desc: 新着降順

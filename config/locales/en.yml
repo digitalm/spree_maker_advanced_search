@@ -1,0 +1,24 @@
+en:
+  add_on:
+    advanced_search:
+      advanced_search: Advanced Search
+      name_cont: Product Name
+      add_on_makers_eq: Maker
+      taxons_id_eq: Taxon
+      variants_including_master_sku_cont: SKU
+      variants_min_cost_price_gteq: Minimum price
+      variants_max_cost_price_lteq: Maximum price
+      filter_elements: Sorting
+      name: Product Name
+      variants_including_master_sku: SKU
+      variants_including_master_prices_amount: Price
+      variants_including_master_updated_at: Latest
+      popularity: Popularity
+      name_asc: Name
+      name_desc: Name
+      variants_including_master_sku_asc: SKU
+      variants_including_master_sku_desc: SKU
+      variants_including_master_prices_amount_asc: Price lowest first
+      variants_including_master_prices_amount_desc: Price highest first
+      variants_including_master_updated_at_asc: Latest first
+      variants_including_master_updated_at_desc: Oldest first

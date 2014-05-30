@@ -1,0 +1,74 @@
+<% content_for :sidebar do %>
+  <div data-hook="homepage_sidebar_navigation">
+    <% if "spree/products" == params[:controller] && @taxon %>
+      <%= render :partial => 'spree/shared/filters' %>
+    <% else %>
+      <%= render :partial => 'spree/shared/taxonomies' %>
+    <% end %>
+  </div>
+<% end %>
+
+<h1 class="taxon-title"><%= t("add_on.advanced_search.advanced_search") %></h1>
+
+<%= search_form_for @q, url: products_advanced_search_path, :html => { :class => "spree/product/advanced_search" }  do |f| %>
+  <div class="alpha twelve columns">
+
+    <div class="field">
+      <%= f.label t('add_on.advanced_search.add_on_makers_eq') %><br>
+      <%= f.select :add_on_makers_id_eq, options_from_collection_for_select(Spree::AddOnMaker.all, :id, :name, @q.add_on_makers_id_eq), include_blank: true %>
+    </div>
+    <div class="field">
+      <%= f.label t('add_on.advanced_search.name_cont') %><br>
+      <%= f.text_field :name_cont, :size => 60 %>
+    </div>
+
+    <div class="field">
+      <%= f.label t('add_on.advanced_search.variants_including_master_sku_cont') %><br>
+      <%= f.text_field :variants_including_master_sku_cont, :size => 60 %>
+    </div>
+
+    <div class="field">
+      <%= f.label t('add_on.advanced_search.taxons_id_eq') %><br>
+      <%= f.select :taxons_id_eq, options_from_collection_for_select(Spree::Taxon.all, :id, :name, @q.taxons_id_eq), include_blank: true %>
+    </div>
+
+    <div class="alpha two columns">
+      <%= f.label t('add_on.advanced_search.variants_min_cost_price_gteq') %><br>
+      <%= f.text_field :variants_including_master_prices_amount_gteq, :size => 10 %>
+      </div>
+    <div class="omega two columns">
+      <%= f.label t('add_on.advanced_search.variants_max_cost_price_lteq') %><br>
+      <%= f.text_field :variants_including_master_prices_amount_lteq, :size => 10 %>
+    </div>
+    <div class="clear"></div>
+  </div>
+
+  <%= f.submit Spree.t(:search) %>
+
+
+<% end %>
+<% if @products.any? %>
+    <div class='add_on_advanced_search'>
+      <ul>
+        <li><%= t('add_on.advanced_search.filter_elements') %></li>
+      </ul>
+      <ul>
+        <li><%= sort_link @q, :variants_including_master_prices_amount, t('add_on.advanced_search.variants_including_master_prices_amount'), default_order: :asc %></li>
+        <li><%= sort_link @q, :variants_including_master_sku, t('add_on.advanced_search.variants_including_master_sku'), default_order: :asc %></li>
+        <li><%= sort_link @q, :variants_including_master_updated_at, t('add_on.advanced_search.variants_including_master_updated_at'), default_order: :desc %></li>
+        <li><%= sort_link @q, :name, t('add_on.advanced_search.name'), default_order: :name %></li>
+      </ul>
+    </div>
+  <div class='clear'></div>
+
+<% end %>
+
+  <div data-hook="advanced_search_results">
+    <% if @products.empty? %>
+      <h6 class="search-results-title"><%= Spree.t(:no_products_found) %></h6>
+    <% else %>
+      <div data-hook="advanced_search_products">
+        <%= render :partial => 'spree/shared/products', :locals => { :products => @products, :taxon => @taxon } %>
+      </div>
+    <% end %>
+  </div>
