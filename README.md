@@ -23,7 +23,7 @@ Installation
 Add spree_maker_advanced_search to your Gemfile:
 
 ```ruby
-gem 'spree_maker_advanced_search'
+gem 'spree_maker_advanced_search', github: 'digitalm/spree_maker_advanced_search'
 ```
 
 Bundle your dependencies and run the installation generator:
